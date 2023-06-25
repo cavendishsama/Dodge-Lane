@@ -67,7 +67,7 @@ class Player(pygame.sprite.Sprite):
             self.rect.y += self.movement_speed
         if keys[pygame.K_SPACE]:
             if time.time() - self.last_bullet_time > self.min_shoot_interval and len(self.bul_list) < MAX_NUMB_BULL:
-                new_bullet=Bullet((self.rect.x,self.rect.y),'an_actual_mother_fucking_bullet_ahh.png')
+                new_bullet=Bullet((self.rect.x,self.rect.y),'bullet.png')
                 game.all_sprites_list.add(new_bullet)
                 self.bul_list.append(new_bullet)
 
@@ -88,7 +88,7 @@ class Bullet(pygame.sprite.Sprite):
         
         self.size = size
         self.image = pygame.transform.scale(pygame.image.load(os.path.join('data', image_file)), (self.size, self.size))
-        self.image = pygame.transform.rotate(self.image, 0)
+        self.image = pygame.transform.rotate(self.image, -90)
         
         self.rect = self.image.get_rect()
 
